@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var move_speed: float = 3.0
 @export var gravity: float = 15.0
@@ -21,7 +22,7 @@ func _physics_process(delta):
 	_state_machine(delta)
 
 	velocity.y = velocity_y
-
+	
 	move_and_slide()
 
 func _get_input_direction() -> Vector3:
