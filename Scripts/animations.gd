@@ -1,15 +1,26 @@
 extends Node
 
 func appear(obj: Object, time: float = 1):
-	obj.visible = true
-	obj.modulate[3] = 0
-	create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_parallel(false).tween_property(obj, "modulate:a", 1, time)
+	if !obj.visible:
+		obj.visible = true
+		obj.modulate[3] = 0
+		create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_parallel(false).tween_property(obj, "modulate:a", 1, time)
 
 func disappear(obj: Object, time: float = 1):
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_parallel(false)
 	tween.tween_property(obj, "modulate:a", 0, time)
 	await get_tree().create_timer(time).timeout
-	if obj: obj.visible = false
+	obj.visible = false
+	
+func blackout(obj: Object, time: float = 1):
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_parallel(false)
+	tween.tween_property(obj, "modulate:ok_hsl_l", -10, time)
+	await get_tree().create_timer(time).timeout
+	
+func unblackout(obj: Object, time: float = 1):
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_parallel(false)
+	tween.tween_property(obj, "modulate:ok_hsl_l", 1, time)
+	await get_tree().create_timer(time).timeout
 	
 func blink(obj: Object, time: float = randf()/10):
 	for i in 6:

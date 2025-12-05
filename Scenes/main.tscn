@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://cv2ijuy38ffko"]
+[gd_scene load_steps=3 format=3 uid="uid://cv2ijuy38ffko"]
+
+[ext_resource type="Script" uid="uid://cw0j7mcd0swyo" path="res://Scenes/main.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://222f8l1y7lk7" path="res://Assets/cowork_sleep.jpg" id="1_jjgbg"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_bo1nx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.312589)
+
+[node name="Nikita" type="Sprite3D" parent="."]
+transform = Transform3D(0.675, 0, 0, 0, 0.675, 0, 0, 0, 0.675, 0, 0, 0)
+texture = ExtResource("1_jjgbg")
+
+[node name="Greeting" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12336707, 1.7734413, 3.5765612)
+text = "Добро пожаловать в коворк"
+font_size = 117
