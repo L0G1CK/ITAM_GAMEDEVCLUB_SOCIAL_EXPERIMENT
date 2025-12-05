@@ -1,0 +1,2 @@
+# ITAM_GAMEDEVCLUB_SOCIAL_EXPERIMENT
+Разработка игры большим сообществом
